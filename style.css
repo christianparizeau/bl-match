@@ -1,0 +1,73 @@
+.title{
+    display: flex;
+    width: 100vw;
+    background-color: red;
+    height: 20vh;
+    text-align: center;
+    font-size: 48px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.stats{
+    display: flex;
+    height: 14%;
+    width: 95%;
+    background-color: lime;
+    font-size: 1rem;
+    margin: 5px;
+    justify-content: center;
+ 
+}
+aside{
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 30vw;
+    font-size:0;
+    background-color: hotpink;
+    justify-content: space-between;
+    align-items: center;
+}
+main{
+    display: flex;
+    height: 80vh;
+    width: 70vw;
+    font-size:0
+}
+.gameboard{
+    display: flex;
+    height: 100%;
+    background-color: dodgerblue;
+    width: 100%;
+    font-size: 1rem;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.totalParent{
+    display:flex
+}
+
+body{
+    margin:0
+}
+.row{
+    height: 30%;
+    width: 95%;
+    background-color: yellow;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.card-container{
+    display: inline-block;
+    height: 90%;
+    width: 15%;
+    background-color: rebeccapurple;
+    margin: 5px;
+}
