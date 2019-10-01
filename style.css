@@ -17,6 +17,8 @@
     background-color: lime;
     font-size: 1rem;
     margin: 5px;
+    justify-content: center;
+ 
 }
 aside{
     display: flex;
