@@ -10,12 +10,15 @@
 }
 
 .stats{
+    border: outset;
     display: flex;
+    flex-direction: column;
     height: 14%;
     width: 95%;
     font-size: 1rem;
     margin: 5px;
     justify-content: center;
+    align-items: center;
  
 }
 aside{
@@ -24,7 +27,6 @@ aside{
     height: 80vh;
     width: 30vw;
     font-size:0;
-    justify-content: space-between;
     align-items: center;
 }
 main{
@@ -72,6 +74,7 @@ body{
     height: 90%;
     width: 15%;
     margin: 5px;
+    border: inset;
 }
 
 

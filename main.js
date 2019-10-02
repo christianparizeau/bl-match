@@ -2,6 +2,7 @@ $(document).ready(init)
 var firstCardClicked = null;
 var secondCardClicked = null;
 var matches = null;
+var max_matches = 2;
 function init(){
     $('.gameboard').on('click','.card-back',handleCardClick)
 }
@@ -25,6 +26,7 @@ function handleCardClick(event){
             console.log("It's a match!");
             console.log(firstCardClicked)
             matches++;
+            winCondition();
             setTimeout(function(){
                 $(firstCardClicked[0].nextSibling).addClass('quiet');
                 $(secondCardClicked[0].nextSibling).addClass('quiet');
@@ -36,7 +38,7 @@ function handleCardClick(event){
                 firstCardClicked.toggleClass('hidden');
                 secondCardClicked.toggleClass('hidden');
                 resetCards();            
-            },1500)
+            },500)
             
         }
         
@@ -44,6 +46,13 @@ function handleCardClick(event){
     }
     
 }
+
+function winCondition(){
+    if (matches === max_matches){
+        $('.gameboard').modal();
+    }
+}
+
 
 function resetCards(){
     firstCardClicked = null;

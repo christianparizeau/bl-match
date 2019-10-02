@@ -4,6 +4,8 @@
     <title>Matching Game</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script src='main.js'></script>
 </head>
 <body>
@@ -13,22 +15,16 @@
     <div class = totalParent>
         <aside>
             <div class="stats">
-                Data and Info Stats 1
+                <div>Games Played</div>
+                <div id = 'gamesPlayedDiv'> 0</div>
             </div>
             <div class="stats">
-                Data and Info Stats 2
+                <div>Attempts</div>
+                <div id = 'AttemptsDiv'> 0</div>
             </div>
             <div class="stats">
-                Data and Info Stats 3
-            </div>
-            <div class="stats">
-                Data and Info Stats 4
-            </div>
-            <div class="stats">
-                Data and Info Stats 5
-            </div>
-            <div class="stats">
-                Data and Info Stats 6
+                <div>Accuracy</div>
+                <div id = 'AccuracyDiv'> 0</div>
             </div>
         </aside><main>
         <div class="gameboard">
