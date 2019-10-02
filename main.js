@@ -7,6 +7,7 @@ function init(){
 }
 
 function handleCardClick(event){
+    $(event.delegateTarget).addClass(this.nextSibling.className)
     $(this).toggleClass('hidden');
     if(!firstCardClicked){
         firstCardClicked= $(this);
