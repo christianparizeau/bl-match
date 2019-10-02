@@ -7,7 +7,7 @@ function init(){
 }
 
 function handleCardClick(event){
-    $(event.delegateTarget).addClass(this.nextSibling.className)
+    // $(event.delegateTarget).addClass(this.nextSibling.className)
     $(this).toggleClass('hidden');
     if(!firstCardClicked){
         firstCardClicked= $(this);
@@ -18,6 +18,8 @@ function handleCardClick(event){
       
         if(firstCardClicked[0].nextSibling.className === secondCardClicked[0].nextSibling.className){
             console.log("It's a match!");
+            firstCardClicked[0].nextSibling.addClass('quiet');
+            secondCardClicked[0].nextSibling.addClass('quiet'); //No longer jquery object after [0]. Fix
             matches++;
             resetCards();
         }
