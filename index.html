@@ -4,7 +4,10 @@
     <title>Matching Game</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script src='main.js'></script>
+
 </head>
 <body>
     <header>
@@ -13,22 +16,16 @@
     <div class = totalParent>
         <aside>
             <div class="stats">
-                Data and Info Stats 1
+                <div class = 'statstext'>Games Played</div>
+                <div id = 'gamesPlayedDiv'> 0</div>
             </div>
             <div class="stats">
-                Data and Info Stats 2
+                <div class = 'statstext'>Attempts</div>
+                <div id='AttemptsDiv'> 0</div>
             </div>
             <div class="stats">
-                Data and Info Stats 3
-            </div>
-            <div class="stats">
-                Data and Info Stats 4
-            </div>
-            <div class="stats">
-                Data and Info Stats 5
-            </div>
-            <div class="stats">
-                Data and Info Stats 6
+                <div class='statstext'>Accuracy</div>
+                <div id='AccuracyDiv'> 0</div>
             </div>
         </aside><main>
         <div class="gameboard">
@@ -43,58 +40,61 @@
                     <div class="card-back"></div><div class="git-hub"></div>
                 </div>
                 <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
+                    <div class="card-back"></div><div class="docker"></div>
                 </div>
                 <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
+                    <div class="card-back"></div><div class="mySQL"></div>
                 </div>
                 <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
-                </div>
-                <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
-                </div>
-                <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
-                </div>
-                <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
-                </div>
-                <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
-                </div>
-                <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
+                    <div class="card-back"></div><div class="node"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
+                    <div class="card-back"></div><div class="node"></div>
                 </div>
                 <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
+                    <div class="card-back"></div><div class="html"></div>
                 </div>
                 <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
+                    <div class="card-back"></div><div class="html"></div>
                 </div>
                 <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
+                    <div class="card-back"></div><div class="js"></div>
                 </div>
                 <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
+                    <div class="card-back"></div><div class="git-hub"></div>
                 </div>
                 <div class="card-container">
-                    <div class="card-back"></div><div class="card-front"></div>
+                    <div class="card-back"></div><div class="php"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card-container">
+                    <div class="card-back"></div><div class="docker"></div>
+                </div>
+                <div class="card-container">
+                    <div class="card-back"></div><div class="css"></div>
+                </div>
+                <div class="card-container">
+                    <div class="card-back"></div><div class="js"></div>
+                </div>
+                <div class="card-container">
+                    <div class="card-back"></div><div class="php"></div>
+                </div>
+                <div class="card-container">
+                    <div class="card-back"></div><div class="css"></div>
+                </div>
+                <div class="card-container">
+                    <div class="card-back"></div><div class="mySQL"></div>
                 </div>
             </div>
         
         </div>
         </main>
+    </div>
+    <div class='modal'>
+        You've won!
     </div>
 </body>
 </html>

@@ -1,7 +1,6 @@
 .title{
     display: flex;
     width: 100vw;
-    background-color: red;
     height: 20vh;
     text-align: center;
     font-size: 48px;
@@ -11,13 +10,15 @@
 }
 
 .stats{
+    border: outset;
     display: flex;
+    flex-direction: column;
     height: 14%;
-    width: 95%;
-    background-color: lime;
+    width: 70%;
     font-size: 1rem;
     margin: 5px;
     justify-content: center;
+    align-items: center;
  
 }
 aside{
@@ -26,8 +27,6 @@ aside{
     height: 80vh;
     width: 30vw;
     font-size:0;
-    background-color: hotpink;
-    justify-content: space-between;
     align-items: center;
 }
 main{
@@ -39,12 +38,13 @@ main{
 .gameboard{
     display: flex;
     height: 100%;
-    background-color: dodgerblue;
     width: 100%;
     font-size: 1rem;
     flex-direction: column;
-    justify-content: space-around;
+    background-position: center;
+    background-size: 100% 100%;
     align-items: center;
+    justify-content: center;
 }
 .totalParent{
     display:flex
@@ -52,11 +52,16 @@ main{
 
 body{
     margin:0;
+    background-image: url(assets/images/bl3-background.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: "Arial Black", Gadget, sans-serif;
+    color: white;
+    text-shadow: 2px 2px 2px black 
 }
 .row{
-    height: 30%;
-    width: 95%;
-    background-color: yellow;
+    height: 20%;
+    width: 70%;
     display:flex;
     flex-direction: row;
     justify-content: center;
@@ -69,18 +74,20 @@ body{
     height: 90%;
     width: 15%;
     margin: 5px;
+    border: inset;
 }
 
 
 .card-back{
     float: left
 }
-.card-back, .card, .react, .git-hub{
+.card-back, .card, .react, .git-hub, .html, .css, .php, .node, .mySQL, .js, .docker{
 
     height: 100%;
     background-size: cover;
     background-position: center;
     width: 100%;
+    background-repeat: no-repeat;
 }
 
 .card-back{
@@ -92,6 +99,44 @@ body{
 }
 .git-hub{
     background-image: url(assets/images/gitHub-logo.png);
+}
+
+.css{
+    background-image: url(assets/images/css-logo.png);
+}
+
+.docker{
+    background-image: url(assets/images/docker-logo.jpg);
+}
+
+.html{
+    background-image: url(assets/images/html-logo.png);
+}
+
+.php{
+    background-image: url(assets/images/php-logo.jpeg);
+}
+
+.js{
+    background-image: url(assets/images/js-logo.png);
+}
+
+.mySQL{
+    background-image: url(assets/images/mysql-logo.jpg);
+}
+
+.node{
+    background-image: url(assets/images/node-logo.png);
+}
+
+.jquery-modal .modal{
+    color: dodgerblue;
+    background: hotpink;
+    text-align: center;
+}
+
+.quiet {
+    opacity: 0.5;
 }
 
 .hidden{
