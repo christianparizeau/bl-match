@@ -51,7 +51,7 @@ main{
 }
 
 body{
-    margin:0
+    margin:0;
 }
 .row{
     height: 30%;
@@ -75,7 +75,7 @@ body{
 .card-back{
     float: left
 }
-.card-back, .card-front{
+.card-back, .card, .react, .git-hub{
 
     height: 100%;
     background-size: cover;
@@ -87,8 +87,11 @@ body{
     background-image: url(/assets/images/lfz-card.jpg);
 }
 
-.card-front{
+.react{
     background-image: url(assets/images/react-logo.png);
+}
+.git-hub{
+    background-image: url(assets/images/gitHub-logo.png);
 }
 
 .hidden{
