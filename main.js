@@ -23,8 +23,6 @@ function handleCardClick(event){
         secondCardClicked = $(this);
       
         if(firstCardClicked[0].nextSibling.className === secondCardClicked[0].nextSibling.className){
-            console.log("It's a match!");
-            console.log(firstCardClicked)
             matches++;
             winCondition();
             setTimeout(function(){
@@ -49,13 +47,18 @@ function handleCardClick(event){
 
 function winCondition(){
     if (matches === max_matches){
-        $('.gameboard').modal();
+        $('.modal').modal({
+            fadeDuration: 100,
+            fadeDelay: 0 
+        });
     }
 }
 
 
 function resetCards(){
-    firstCardClicked = null;
-    secondCardClicked = null;
+    firstCardClicked=null;
+    secondCardClicked=null;
 }
+
+
 

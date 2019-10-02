@@ -7,6 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script src='main.js'></script>
+
 </head>
 <body>
     <header>
@@ -15,16 +16,16 @@
     <div class = totalParent>
         <aside>
             <div class="stats">
-                <div>Games Played</div>
+                <div class = 'statstext'>Games Played</div>
                 <div id = 'gamesPlayedDiv'> 0</div>
             </div>
             <div class="stats">
-                <div>Attempts</div>
-                <div id = 'AttemptsDiv'> 0</div>
+                <div class = 'statstext'>Attempts</div>
+                <div id='AttemptsDiv'> 0</div>
             </div>
             <div class="stats">
-                <div>Accuracy</div>
-                <div id = 'AccuracyDiv'> 0</div>
+                <div class='statstext'>Accuracy</div>
+                <div id='AccuracyDiv'> 0</div>
             </div>
         </aside><main>
         <div class="gameboard">
@@ -91,6 +92,9 @@
         
         </div>
         </main>
+    </div>
+    <div class='modal'>
+        You've won!
     </div>
 </body>
 </html>
