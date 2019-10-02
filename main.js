@@ -8,20 +8,28 @@ function init(){
 
 function handleCardClick(event){
     // $(event.delegateTarget).addClass(this.nextSibling.className)
-    $(this).toggleClass('hidden');
     if(!firstCardClicked){
+        $(this).toggleClass('hidden');
         firstCardClicked= $(this);
         return
     }
-    else{
+    else if (secondCardClicked){
+        return
+    }
+    else if (!secondCardClicked){
+        $(this).toggleClass('hidden');
+
         secondCardClicked = $(this);
       
         if(firstCardClicked[0].nextSibling.className === secondCardClicked[0].nextSibling.className){
             console.log("It's a match!");
-            firstCardClicked[0].nextSibling.addClass('quiet');
-            secondCardClicked[0].nextSibling.addClass('quiet'); //No longer jquery object after [0]. Fix
+            console.log(firstCardClicked)
             matches++;
-            resetCards();
+            setTimeout(function(){
+                $(firstCardClicked[0].nextSibling).addClass('quiet');
+                $(secondCardClicked[0].nextSibling).addClass('quiet');
+                resetCards();
+            }, 300)
         }
         else{
             setTimeout(function(){
