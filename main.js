@@ -2,7 +2,7 @@ $(document).ready(init)
 var firstCardClicked = null;
 var secondCardClicked = null;
 var matches = null;
-var max_matches = 2;
+var max_matches = 9;
 function init(){
     $('.gameboard').on('click','.card-back',handleCardClick)
 }
