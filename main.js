@@ -2,7 +2,7 @@ $(document).ready(init)
 var firstCardClicked = null;
 var secondCardClicked = null;
 var matches = null;
-var max_matches = 9;
+var max_matches = 2;
 function init(){
     $('.gameboard').on('click','.card-back',handleCardClick)
 }
@@ -49,7 +49,10 @@ function winCondition(){
     if (matches === max_matches){
         $('.modal').modal({
             fadeDuration: 100,
-            fadeDelay: 0 
+            fadeDelay: 1.75,
+            escapeClose: false,
+            clickClose: false,
+            showClose: false 
         });
     }
 }
@@ -60,5 +63,14 @@ function resetCards(){
     secondCardClicked=null;
 }
 
+function resetStats(){
+    attempts=null;
+    matches=null;
+    $('*').removeClass('hidden');
+    $('*').removeClass('quiet');
+    $('modal').modal();
+    $('div').removeClass('blocker');
+    
+}
 
 
