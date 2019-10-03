@@ -3,6 +3,8 @@ var firstCardClicked = null;
 var secondCardClicked = null;
 var matches = null;
 var max_matches = 2;
+var games_played = 0;
+var attempts = null;
 function init(){
     $('.gameboard').on('click','.card-back',handleCardClick)
 }
@@ -19,17 +21,16 @@ function handleCardClick(event){
     }
     else if (!secondCardClicked){
         $(this).toggleClass('hidden');
-
+        attempts++;
         secondCardClicked = $(this);
       
         if(firstCardClicked[0].nextSibling.className === secondCardClicked[0].nextSibling.className){
             matches++;
             winCondition();
-            setTimeout(function(){
-                $(firstCardClicked[0].nextSibling).addClass('quiet');
-                $(secondCardClicked[0].nextSibling).addClass('quiet');
-                resetCards();
-            }, 300)
+            $(firstCardClicked[0].nextSibling).addClass('quiet');
+            $(secondCardClicked[0].nextSibling).addClass('quiet');
+            resetCards();
+       
         }
         else{
             setTimeout(function(){
@@ -39,6 +40,7 @@ function handleCardClick(event){
             },500)
             
         }
+        displayStats();
         
 
     }
@@ -49,11 +51,12 @@ function winCondition(){
     if (matches === max_matches){
         $('.modal').modal({
             fadeDuration: 100,
-            fadeDelay: 1.75,
-            escapeClose: false,
-            clickClose: false,
-            showClose: false 
+            fadeDelay: 0.5,
+            escapeClose:false,
+            showClose:false,
+            clickClose: false
         });
+    games_played++;   
     }
 }
 
@@ -63,13 +66,38 @@ function resetCards(){
     secondCardClicked=null;
 }
 
+function calcAccuracy(){
+    var percent = matches * 100 / attempts
+    var rounded = Math.round(percent)
+    return rounded;
+}
+
+function displayStats(){
+    $('#attemptsDiv').text(attempts);
+    if (!attempts){
+        $('#accuracyDiv').text(' ');
+    }
+    else{
+        var accuracy = calcAccuracy();
+        $('#accuracyDiv').text(accuracy + '%')
+    }
+    $('#gamesPlayedDiv').text(games_played);
+}
+
 function resetStats(){
-    attempts=null;
-    matches=null;
+    attempts=0;
+    matches=0;
     $('*').removeClass('hidden');
     $('*').removeClass('quiet');
-    $('modal').modal();
+    $('.modal').modal({
+        fadeDuration: 100,
+        fadeDelay: 0.5,
+        escapeClose:false,
+        showClose:false,
+        clickClose: false
+    });
     $('div').removeClass('blocker');
+    displayStats();
     
 }
 

@@ -12,9 +12,6 @@
 <body>
     <header>
         <div class = 'title'>Pzo's Matching Game</div>
-        <div class='modal'>
-            You've won!
-            <button onclick="resetStats()">Would you like to play again?</button>
         </div>
     </header>
     <div class = totalParent>
@@ -25,11 +22,11 @@
             </div>
             <div class="stats">
                 <div class = 'statstext'>Attempts</div>
-                <div id='AttemptsDiv'> 0</div>
+                <div id='attemptsDiv'> 0</div>
             </div>
             <div class="stats">
                 <div class='statstext'>Accuracy</div>
-                <div id='AccuracyDiv'> 0</div>
+                <div id='accuracyDiv'> 0</div>
             </div>
         </aside><main>
         <div class="gameboard">
@@ -99,7 +96,7 @@
     </div>
     <div class='modal'>
         You've won!
-        <a onclick="resetStats()" rel='modal:close'>Would you like to play again?</a>
+        <a onclick="resetStats()" rel:'modal:close'>Would you like to play again?</a>
     </div>
 </body>
 </html>
