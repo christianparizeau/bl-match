@@ -12,6 +12,10 @@
 <body>
     <header>
         <div class = 'title'>Pzo's Matching Game</div>
+        <div class='modal'>
+            You've won!
+            <button onclick="resetStats()">Would you like to play again?</button>
+        </div>
     </header>
     <div class = totalParent>
         <aside>
@@ -95,6 +99,7 @@
     </div>
     <div class='modal'>
         You've won!
+        <a onclick="resetStats()" rel='modal:close'>Would you like to play again?</a>
     </div>
 </body>
 </html>
