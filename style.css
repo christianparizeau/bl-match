@@ -9,25 +9,50 @@
 
 }
 
-.stats{
-    border: outset;
-    display: flex;
-    flex-direction: column;
-    height: 14%;
-    width: 70%;
+.stats{  
+    height: 22%;
+    width: 85%;
     font-size: 1rem;
     margin: 5px;
-    justify-content: center;
-    align-items: center;
- 
+    position: relative;
 }
+
+.attemptsDiv{
+    background-image: url(assets/images/attempts.png)
+}
+
+.accuracyDiv{
+    background-image: url(assets/images/accuracy.png)
+}
+
+.gamesPlayedDiv{
+    background-image: url(assets/images/gamesPlayed.png)
+}
+
+.gamesPlayedDiv, .accuracyDiv, .attemptsDiv{
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#gamesPlayedDiv, #accuracyDiv, #attemptsDiv{
+    display: inline-block;
+    position: relative;
+    top: 47px;
+    left: 58px;
+    float: none;
+    font-size: 1em;
+}
+
 aside{
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    height: 40vh;
     width: 30vw;
     font-size:0;
     align-items: center;
+    justify-content: space-between;
+    
 }
 main{
     display: flex;
@@ -74,14 +99,13 @@ body{
     height: 90%;
     width: 15%;
     margin: 5px;
-    border: inset;
 }
 
 
 .card-back{
     float: left
 }
-.card-back, .card, .react, .git-hub, .html, .css, .php, .node, .mySQL, .js, .docker{
+.card-back, .card, .buttStallion, .flak, .lillith, .maya, .psycho, .roland, .tina, .zero, .jack{
 
     height: 100%;
     background-size: cover;
@@ -91,42 +115,42 @@ body{
 }
 
 .card-back{
-    background-image: url(/assets/images/lfz-card.jpg);
+    background-image: url(/assets/images/symbol.png);
 }
 
-.react{
-    background-image: url(assets/images/react-logo.png);
+.buttStallion{
+    background-image: url(assets/images/Buttstallion.png);
 }
-.git-hub{
-    background-image: url(assets/images/gitHub-logo.png);
-}
-
-.css{
-    background-image: url(assets/images/css-logo.png);
+.flak{
+    background-image: url(assets/images/flak.png);
 }
 
-.docker{
-    background-image: url(assets/images/docker-logo.jpg);
+.jack{
+    background-image: url(assets/images/jack.png);
 }
 
-.html{
-    background-image: url(assets/images/html-logo.png);
+.lillith{
+    background-image: url(assets/images/lillith.png);
 }
 
-.php{
-    background-image: url(assets/images/php-logo.jpeg);
+.maya{
+    background-image: url(assets/images/maya.png);
 }
 
-.js{
-    background-image: url(assets/images/js-logo.png);
+.psycho{
+    background-image: url(assets/images/psycho.png);
 }
 
-.mySQL{
-    background-image: url(assets/images/mysql-logo.jpg);
+.roland{
+    background-image: url(assets/images/roland.png);
 }
 
-.node{
-    background-image: url(assets/images/node-logo.png);
+.tina{
+    background-image: url(assets/images/tina.jpeg);
+}
+
+.zero{
+    background-image: url(assets/images/zero.png);
 }
 
 .jquery-modal .modal{
@@ -137,6 +161,10 @@ body{
 
 .quiet {
     opacity: 0.5;
+}
+
+.statstext{
+    font-size: 30px;
 }
 
 .hidden{
