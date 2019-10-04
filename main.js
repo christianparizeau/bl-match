@@ -54,9 +54,11 @@ function handleCardClick(event){
         if(firstCardClicked[0].nextSibling.className === secondCardClicked[0].nextSibling.className){
             matches++;
             winCondition();
+            setTimeout(function(){
             $(firstCardClicked[0].nextSibling).addClass('quiet');
             $(secondCardClicked[0].nextSibling).addClass('quiet');
             resetCards();
+            }, 700)
        
         }
         else{

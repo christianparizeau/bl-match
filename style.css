@@ -101,7 +101,6 @@ body{
 
 
 .card-back{
-    opacity: 0.2;
     float: right;
     animation: rotation 2s linear infinite;
     animation-play-state: paused;
@@ -123,6 +122,7 @@ body{
     background-repeat: no-repeat;
     border-radius: 50%;
     border-style: none;
+    background-color: rgba(94, 91, 91, 0.651);
 }
 
 .card-back{
