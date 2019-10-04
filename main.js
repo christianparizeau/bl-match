@@ -49,15 +49,19 @@ function handleCardClick(event){
 
 function winCondition(){
     if (matches === max_matches){
-        $('.modal').modal({
-            fadeDuration: 100,
-            fadeDelay: 0.5,
-            escapeClose:false,
-            showClose:false,
-            clickClose: false
-        });
+        console.log("You won!")
+        $('victoryModal-background').css({
+            'display': 'block'
+        })
+    //     $('.modal').modal({
+    //         fadeDuration: 100,
+    //         fadeDelay: 0.5,
+    //         escapeClose:false,
+    //         showClose:false,
+    //         clickClose: false
+        };
     games_played++;   
-    }
+    
 }
 
 
