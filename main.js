@@ -5,9 +5,36 @@ var matches = null;
 var max_matches = 2;
 var games_played = 0;
 var attempts = null;
+var CARDS = ['buttStallion','tina','zero','roland','psycho','maya','lillith','jack','flak']
 function init(){
     $('.gameboard').on('click','.card-back',handleCardClick)
+    var cards = CARDS.concat(CARDS);
+    randomizeCardLocations(cards);
+
 }
+
+function randomizeCardLocations(cardArray){
+    var gameboard = $('.gameboard')
+    for(var i=0; i<3;i++){
+        var currentRow = $('<div>').addClass('row');
+        for(var cardIndex=0;cardIndex<6;cardIndex++){
+            let currentCard = $('<div>').addClass('card-container');
+            let cardBack = $('<div>').addClass('card-back');
+            currentCard.append(cardBack);
+            let randomIndex = Math.floor(Math.random()*cardArray.length)
+            let randomClass = cardArray.splice(randomIndex,1);
+            let cardFront = $('<div>').addClass(randomClass)
+            currentCard.append(cardFront);
+            currentRow.append(currentCard);
+        }
+        gameboard.append(currentRow);
+    }
+}
+
+// function findRandomIndex(array){
+//     return Math.floor(Math.random()*array.length)
+// }
+
 
 function handleCardClick(event){
     // $(event.delegateTarget).addClass(this.nextSibling.className)
@@ -37,7 +64,7 @@ function handleCardClick(event){
                 firstCardClicked.toggleClass('hidden');
                 secondCardClicked.toggleClass('hidden');
                 resetCards();            
-            },500)
+            },700)
             
         }
         displayStats();
@@ -50,8 +77,15 @@ function handleCardClick(event){
 function winCondition(){
     if (matches === max_matches){
         console.log("You won!")
-        $('victoryModal-background').css({
+        var modal = $('.victoryModal-background')
+        modal.css({
             'display': 'block'
+        })
+        $('.close').on('click',function(e){
+            modal.css({
+                'display':'none'
+            })
+            resetStats();
         })
     //     $('.modal').modal({
     //         fadeDuration: 100,

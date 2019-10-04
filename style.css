@@ -164,15 +164,16 @@ body{
 }
 
 .victoryModal-background{
+    display: none;
+    position: fixed;
+    left: 25%;
+    top: 50%;
     z-index: 1;
-    width: 100%;
-    height: 100%;
     overflow: hidden;
     position: fixed;
     color: dodgerblue;
     background: hotpink;
     text-align: center;
-    height: 5%;
     width:50%;
 }
 
@@ -180,7 +181,7 @@ body{
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: 1px outset #888;
+    border: 1px solid #888;
     width: 80%
 }
 
