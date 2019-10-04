@@ -159,6 +159,8 @@ body{
     color: dodgerblue;
     background: hotpink;
     text-align: center;
+    height: 5%;
+    width:50%;
 }
 
 .quiet {

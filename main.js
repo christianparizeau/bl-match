@@ -19,7 +19,7 @@ function handleCardClick(event){
     else if (secondCardClicked){
         return
     }
-    else if (!secondCardClicked){
+    else{
         $(this).toggleClass('hidden');
         attempts++;
         secondCardClicked = $(this);
