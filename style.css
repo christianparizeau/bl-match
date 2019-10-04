@@ -101,6 +101,7 @@ body{
 
 
 .card-back{
+    opacity: 0.2;
     float: right;
     animation: rotation 2s linear infinite;
     animation-play-state: paused;

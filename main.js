@@ -81,21 +81,20 @@ function winCondition(){
         modal.css({
             'display': 'block'
         })
+        $('.victoryModal-content > .final-attempts').text('It took you '+attempts+ ' attempts to match all the pairs');
+        $('.victoryModal-content > .final-accuracy').text('Your accuracy was '+ calcAccuracy()+'%');
         $('.close').on('click',function(e){
             modal.css({
                 'display':'none'
             })
             resetStats();
+            $('.gameboard').empty();
+            var cards = CARDS.concat(CARDS)
+            randomizeCardLocations(cards);
         })
-    //     $('.modal').modal({
-    //         fadeDuration: 100,
-    //         fadeDelay: 0.5,
-    //         escapeClose:false,
-    //         showClose:false,
-    //         clickClose: false
-        };
-    games_played++;   
-    
+        games_played++;
+
+    }; 
 }
 
 
@@ -127,13 +126,6 @@ function resetStats(){
     matches=0;
     $('*').removeClass('hidden');
     $('*').removeClass('quiet');
-    $('.modal').modal({
-        fadeDuration: 100,
-        fadeDelay: 0.5,
-        escapeClose:false,
-        showClose:false,
-        clickClose: false
-    });
     $('div').removeClass('blocker');
     displayStats();
     
