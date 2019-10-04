@@ -50,8 +50,15 @@ function handleCardClick(event){
 function winCondition(){
     if (matches === max_matches){
         console.log("You won!")
-        $('victoryModal-background').css({
+        var modal = $('.victoryModal-background')
+        modal.css({
             'display': 'block'
+        })
+        $('.close').on('click',function(e){
+            modal.css({
+                'display':'none'
+            })
+            resetStats();
         })
     //     $('.modal').modal({
     //         fadeDuration: 100,
