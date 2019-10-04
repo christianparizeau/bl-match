@@ -106,12 +106,14 @@ body{
     float: left
 }
 .card-back, .card, .buttStallion, .flak, .lillith, .maya, .psycho, .roland, .tina, .zero, .jack{
-
     height: 100%;
     background-size: cover;
     background-position: center;
     width: 100%;
     background-repeat: no-repeat;
+    border-radius: 100%;
+    border-style: outset;
+    border-width: 5px; 
 }
 
 .card-back{
@@ -146,7 +148,7 @@ body{
 }
 
 .tina{
-    background-image: url(assets/images/tina.jpeg);
+    background-image: url(assets/images/tina.png);
 }
 
 .zero{
