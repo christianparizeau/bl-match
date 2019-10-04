@@ -74,11 +74,12 @@ main{
 .totalParent{
     display:flex
 }
-
 body{
-    margin:0;
+    margin:0
+}
+.body{
     background-image: url(assets/images/bl3-background.jpg);
-    background-size: cover;
+    background-size: 100vw 100vh;
     background-position: center;
     font-family: "Arial Black", Gadget, sans-serif;
     color: white;
