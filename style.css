@@ -166,23 +166,27 @@ body{
 .victoryModal-background{
     display: none;
     position: fixed;
-    left: 25%;
-    top: 50%;
+    left: 0;
+    top: 0;
     z-index: 1;
     overflow: hidden;
     position: fixed;
     color: dodgerblue;
-    background: hotpink;
+    background: rgba(0, 0, 0, 0.836);
     text-align: center;
-    width:50%;
+    width:100%;
+    height: 100%;
 }
 
 .victoryModal-content{
-    background-color: #fefefe;
+    background-color:grey;
+    border: 5px outset black;
+    border-radius: 15px;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%
+    width: 30%;
+    font-size: 25px;
 }
 
 .close{
@@ -193,7 +197,7 @@ body{
 }
 
 .close:hover, .close:focus{
-    color: black;
+    color: orangered;
     text-decoration: aqua;
     cursor: pointer;
 }
