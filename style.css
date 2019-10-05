@@ -97,22 +97,37 @@ body{
     height: 100px;
     width: 100px;
     margin: 5px;
+
 }
 
 
 .card-back{
+    /* opacity: 0.2; */
+    background-image: url(/assets/images/symbol.png);
     float: right;
     animation: rotation 2s linear infinite;
     animation-play-state: paused;
+}
+
+
+
+.shrink{
+    animation: rotation 1s linear forwards,  shrink 1s linear forwards;
+    pointer-events: none;
 }
 
 @keyframes rotation{
     100%{transform: rotate(1turn)}
 }
 
+@keyframes shrink{
+    100%{transform: scale(0,0)}
+}
+
 
 .card-back:hover{
     animation-play-state: running
+
 }
 .card-back, .card, .buttStallion, .flak, .lillith, .maya, .psycho, .roland, .tina, .zero, .jack{
     height: 100%;
@@ -125,9 +140,7 @@ body{
     background-color: rgba(94, 91, 91, 0.651);
 }
 
-.card-back{
-    background-image: url(/assets/images/symbol.png);
-}
+
 
 .buttStallion{
     background-image: url(assets/images/Buttstallion.png);
