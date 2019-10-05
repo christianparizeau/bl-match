@@ -5,10 +5,11 @@ var matches = null;
 var max_matches = 9;
 var games_played = 0;
 var attempts = null;
-var CARDS = ['buttStallion','tina','zero','roland','psycho','maya','lillith','jack','flak']
+const CARDS = ['buttStallion','jack','tina','badonkL','badonkR','zero','zero','zero','psycho','psycho','maya','maya','flak','flak','lillith','lillith','roland','roland']
 function init(){
     $('.gameboard').on('click','.card-back',handleCardClick)
-    var cards = CARDS.concat(CARDS);
+    var cards = [...CARDS];
+    console.log(cards.length)
     randomizeCardLocations(cards);
 
 }
