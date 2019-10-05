@@ -112,7 +112,7 @@ body{
 
 
 .shrink{
-    animation: rotation 1s linear forwards,  shrink 1s linear forwards;
+    animation: shrink 1s linear forwards;
     pointer-events: none;
 }
 
@@ -121,7 +121,7 @@ body{
 }
 
 @keyframes shrink{
-    100%{transform: scale(0,0)}
+    100%{transform: scale(0,0) rotate(2turn)}
 }
 
 
