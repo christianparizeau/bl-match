@@ -49,18 +49,18 @@ function handleCardClick(event){
         secondCardClicked.toggleClass('shrink')
         if(firstCardClicked[0].nextSibling.className === secondCardClicked[0].nextSibling.className){
             matches++;
-            debugger;
-            if($(firstCardClicked[0].nextSibling).hasClass('psycho') && matches !== max_matches){
-                loseCondition();
+            switch (firstCardClicked[0].nextSibling.className){
+                case "psycho":
+                    if (matches === max_matches){
+                        loseCondition();
+                    }
             }
-            else{ 
             winCondition();
             setTimeout(function(){
             $(firstCardClicked[0].nextSibling).addClass('quiet');
             $(secondCardClicked[0].nextSibling).addClass('quiet');
             resetCards();
             }, 700)
-        }
         }
         else{
             setTimeout(function(){
@@ -73,12 +73,21 @@ function handleCardClick(event){
             
         }
         displayStats();
-        
-
     }
-    
 }
 
+function specialCardCheck(cardFront){
+    switch (cardFront){
+        case 'tina':
+            break;
+        case 'tina':
+            break;
+        case 'tina':
+            break;
+        case 'tina':
+            break;
+    }
+}
 
 function loseCondition(){
     console.log("You suck!")
