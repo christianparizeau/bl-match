@@ -108,9 +108,6 @@ body{
     animation: rotation 2s linear infinite;
     animation-play-state: paused;
 }
-
-
-
 .shrink{
     animation: shrink 1s linear forwards;
     pointer-events: none;
@@ -121,7 +118,7 @@ body{
 }
 
 @keyframes shrink{
-    100%{transform: scale(0,0) rotate(2turn)}
+    100%{transform: scale(0,0) rotate(3turn)}
 }
 
 
