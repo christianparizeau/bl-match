@@ -5,10 +5,11 @@ var matches = null;
 var max_matches = 9;
 var games_played = 0;
 var attempts = null;
-var CARDS = ['buttStallion','tina','zero','roland','psycho','maya','lillith','jack','flak']
+const CARDS = ['buttStallion','jack','tina','badonkL','badonkR','zero','zero','zero','psycho','psycho','maya','maya','flak','flak','lillith','lillith','roland','roland']
 function init(){
     $('.gameboard').on('click','.card-back',handleCardClick)
-    var cards = CARDS.concat(CARDS);
+    var cards = [...CARDS];
+    console.log(cards.length)
     randomizeCardLocations(cards);
 
 }
@@ -49,18 +50,18 @@ function handleCardClick(event){
         secondCardClicked.toggleClass('shrink')
         if(firstCardClicked[0].nextSibling.className === secondCardClicked[0].nextSibling.className){
             matches++;
-            debugger;
-            if($(firstCardClicked[0].nextSibling).hasClass('psycho') && matches !== max_matches){
-                loseCondition();
+            switch (firstCardClicked[0].nextSibling.className){
+                case "psycho":
+                    if (matches === max_matches){
+                        loseCondition();
+                    }
             }
-            else{ 
             winCondition();
             setTimeout(function(){
             $(firstCardClicked[0].nextSibling).addClass('quiet');
             $(secondCardClicked[0].nextSibling).addClass('quiet');
             resetCards();
             }, 700)
-        }
         }
         else{
             setTimeout(function(){
@@ -73,12 +74,21 @@ function handleCardClick(event){
             
         }
         displayStats();
-        
-
     }
-    
 }
 
+function specialCardCheck(cardFront){
+    switch (cardFront){
+        case 'tina':
+            break;
+        case 'tina':
+            break;
+        case 'tina':
+            break;
+        case 'tina':
+            break;
+    }
+}
 
 function loseCondition(){
     console.log("You suck!")
