@@ -30,21 +30,15 @@ function randomizeCardLocations(cardArray){
         gameboard.append(currentRow);
     }
 }
-
-// function findRandomIndex(array){
-//     return Math.floor(Math.random()*array.length)
-// }
-
-
 function handleCardClick(event){
     // $(event.delegateTarget).addClass(this.nextSibling.className)
     if(!firstCardClicked){
         $(this).toggleClass('hidden');
         firstCardClicked= $(this);
-        return
+        return;
     }
     else if (secondCardClicked){
-        return
+        return;
     }
     else{
         $(this).toggleClass('hidden');
@@ -53,13 +47,18 @@ function handleCardClick(event){
       
         if(firstCardClicked[0].nextSibling.className === secondCardClicked[0].nextSibling.className){
             matches++;
+            debugger;
+            if($(firstCardClicked[0].nextSibling).hasClass('psycho') && matches !== max_matches){
+                loseCondition();
+            }
+            else{ 
             winCondition();
             setTimeout(function(){
             $(firstCardClicked[0].nextSibling).addClass('quiet');
             $(secondCardClicked[0].nextSibling).addClass('quiet');
             resetCards();
             }, 700)
-       
+        }
         }
         else{
             setTimeout(function(){
@@ -74,6 +73,27 @@ function handleCardClick(event){
 
     }
     
+}
+
+
+function loseCondition(){
+    console.log("You suck!")
+    var modal = $('.victoryModal-background')
+    modal.css({
+        'display': 'block'
+    })
+    $('.verdict').text('You lose!')
+    $('.victoryModal-content > .final-attempts').text('You lost in ' +attempts+ ' attempts. Try harder next time grinder!');
+    $('.close').on('click',function(e){
+        modal.css({
+            'display':'none'
+        })
+        resetStats();
+        $('.gameboard').empty();
+        var cards = CARDS.concat(CARDS)
+        randomizeCardLocations(cards);
+    })
+    games_played++;
 }
 
 function winCondition(){
