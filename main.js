@@ -124,7 +124,10 @@ function handleCardClick(event) {
     var secondClass = secondCardClicked[0].nextSibling.className;
     switch (secondClass) {
       case "jack":
+      let audio2 = new Audio("assets/sounds/calling.mp3")
+      audio2.play();
         if (firstClass === "buttStallion") {
+          audio2.pause();
           matches++;
           setTimeout(function() {
             cardClear(
@@ -141,7 +144,10 @@ function handleCardClick(event) {
         }
         break;
       case "buttStallion":
+      let audio1 = new Audio("assets/sounds/neigh.mp3")
+      audio1.play();
         if (firstClass === "jack") {
+          audio1.pause();
           matches++;
           setTimeout(function() {
             cardClear(
