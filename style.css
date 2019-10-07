@@ -134,6 +134,7 @@ body {
 
 .card-back:hover {
   animation-play-state: running;
+  opacity: 0.1;
 }
 .card-back,
 .card,

@@ -25,17 +25,46 @@ const CARDS = [
   "roland",
   "roland"
 ];
-var zeroHaiku = [
-  "Haiku's are quite rad,",
-  "But sometimes they don't make sense,",
-  "Refridgerator."
+var zeroHaikus = [
+  [
+    "Haiku's are quite rad,",
+    "But sometimes they don't make sense,",
+    "Refridgerator."
+  ],
+  [
+    "Your eyes deceive you,",
+    "An illusion foold you all,",
+    "I move for the kill"
+  ],
+  [
+    "How hilarious.",
+    "You just set off my trap card,",
+    "Your death approaches."
+  ],
+  [
+    "Bor-ed, bor-ed, bored.",
+    "Bored bored bored bored bored bored bored.",
+    "I am really BORED!!"
+  ],
+  ["I am everywhere.", "And yet I am no where too,", "I am infinite"],
+  ["Disgusting, this slag", "Inelegant chemical,", "Increases damage."],
+  ["Can we start moving?", "I grow tired of this spot,", "I long to explore."],
+  ["We made them angry", "Prepare for counterattack", "Maliwan dickheads"]
 ];
 var zerosFound = 0;
 var damselsSafe = false;
+var zeroClone = Array.from(zeroHaikus);
+var zeroHaiku;
 function init() {
   $(".gameboard").on("click", ".card-back", handleCardClick);
   var cards = [...CARDS];
   randomizeCardLocations(cards);
+  zeroPicker();
+}
+
+function zeroPicker() {
+  let randomIndex = Math.floor(Math.random() * zeroClone.length);
+  zeroHaiku = zeroClone[randomIndex];
 }
 
 function randomizeCardLocations(cardArray) {
@@ -166,13 +195,13 @@ function handleCardClick(event) {
               resetCards();
             }, 700);
           }
-          break;
         } else {
           setTimeout(function() {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
           }, 1500);
         }
+        break;
       case "badonkR":
         if (firstClass === "badonkL") {
           if (!damselsSafe) {
