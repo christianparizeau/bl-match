@@ -10,12 +10,23 @@
 
 .stats {
   height: 20%;
-  width: 40%;
+  width: 55%;
   font-size: 1rem;
   margin: 5px;
   position: relative;
 }
 
+.haiku0,
+.haiku1,
+.haiku2 {
+  text-align: center;
+  font-size: 16px;
+  color: rgb(241, 241, 241);
+}
+
+.zerohaiku {
+  height: 100px;
+}
 .zerohaiku,
 .psychostatus,
 .damselstatus,
@@ -25,7 +36,7 @@
   border: 5px outset rgba(104, 190, 211, 0.685);
   text-align: center;
   background: rgba(104, 190, 211, 0.685);
-  color: orange;
+  color: rgb(240, 127, 22);
 }
 
 .notsafe {
@@ -98,7 +109,6 @@ body {
 }
 
 .card-back {
-  opacity: 0.2;
   background-image: url(/assets/images/symbol.png);
   float: right;
   animation: rotation 2s linear infinite;

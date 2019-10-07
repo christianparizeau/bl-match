@@ -25,7 +25,11 @@ const CARDS = [
   "roland",
   "roland"
 ];
-var zeroHaiku = [""];
+var zeroHaiku = [
+  "Haiku's are quite rad,",
+  "But sometimes they don't make sense,",
+  "Refridgerator."
+];
 var zerosFound = 0;
 var damselsSafe = false;
 function init() {
@@ -35,23 +39,20 @@ function init() {
 }
 
 function randomizeCardLocations(cardArray) {
-  //cardArray is an array of strings that correspond to css classes that have background images
   var gameboard = $(".gameboard");
   for (var i = 0; i < 3; i++) {
-    //For each row
-    var currentRow = $("<div>").addClass("row"); //Create a div with class row
+    var currentRow = $("<div>").addClass("row");
     for (var cardIndex = 0; cardIndex < 6; cardIndex++) {
-      //Loop 6 times
-      let currentCard = $("<div>").addClass("card-container"); //Create a div with class contanier
-      let cardBack = $("<div>").addClass("card-back"); //Create a div with class card back
-      currentCard.append(cardBack); //Append card back div to container div
-      let randomIndex = Math.floor(Math.random() * cardArray.length); //find a random index in an array of cardArray param. Shrinks along with the length of the array during the next step
-      let randomClass = cardArray.splice(randomIndex, 1); //return the array @ random index and delete it from the array
-      let cardFront = $("<div>").addClass(randomClass); // make a div with class that is added from the array
-      currentCard.append(cardFront); //append the card front to the container div
-      currentRow.append(currentCard); //append the container div to the row
+      let currentCard = $("<div>").addClass("card-container");
+      let cardBack = $("<div>").addClass("card-back");
+      currentCard.append(cardBack);
+      let randomIndex = Math.floor(Math.random() * cardArray.length);
+      let randomClass = cardArray.splice(randomIndex, 1);
+      let cardFront = $("<div>").addClass(randomClass);
+      currentCard.append(cardFront);
+      currentRow.append(currentCard);
     }
-    gameboard.append(currentRow); //at the end of each row, append it to the gameboard
+    gameboard.append(currentRow);
   }
 }
 function handleCardClick(event) {
@@ -68,13 +69,14 @@ function handleCardClick(event) {
       $(".damselstatus .statstext")
         .removeClass("notsafe")
         .addClass("safe");
-      //add a dom element that tells them damsels are now safe to match
     } else if (firstCardClicked[0].nextSibling.className === "zero") {
       var thisZero = firstCardClicked;
       resetCards();
       setTimeout(function() {
         $(thisZero[0].nextSibling).addClass("quiet");
       }, 700);
+      var selector = ".zerohaiku .haiku" + zerosFound;
+      $(selector).text(zeroHaiku[zerosFound++]);
     }
     return;
   } else if (secondCardClicked) {
@@ -89,29 +91,40 @@ function handleCardClick(event) {
       case "jack":
         if (firstClass === "buttStallion") {
           matches++;
-          winCondition();
           setTimeout(function() {
             $(firstCardClicked[0].nextSibling).addClass("quiet");
             $(secondCardClicked[0].nextSibling).addClass("quiet");
             resetCards();
           }, 700);
+        } else {
+          setTimeout(function() {
+            firstCardClicked.toggleClass("shrink");
+            secondCardClicked.toggleClass("shrink");
+            resetCards();
+          }, 1500);
         }
         break;
       case "buttStallion":
         if (firstClass === "jack") {
           matches++;
-          winCondition();
           setTimeout(function() {
             $(firstCardClicked[0].nextSibling).addClass("quiet");
             $(secondCardClicked[0].nextSibling).addClass("quiet");
             resetCards();
           }, 700);
+        } else {
+          setTimeout(function() {
+            firstCardClicked.toggleClass("shrink");
+            secondCardClicked.toggleClass("shrink");
+            resetCards();
+          }, 1500);
         }
+        break;
       case "psycho":
         matches++;
         if (firstClass === "psycho" && matches !== max_matches) {
           matches--;
-          loseCondition();
+          loseCondition("psycho");
         } else if (firstClass === "psycho" && matches === max_matches) {
           winCondition();
         } else {
@@ -124,6 +137,8 @@ function handleCardClick(event) {
         }
         break;
       case "zero":
+        var selector = ".zerohaiku .haiku" + zerosFound;
+        $(selector).text(zeroHaiku[zerosFound++]);
         setTimeout(function() {
           $(secondCardClicked[0].nextSibling).addClass("quiet");
           firstCardClicked.toggleClass("shrink");
@@ -133,10 +148,9 @@ function handleCardClick(event) {
       case "badonkL":
         if (firstClass === "badonkR") {
           if (!damselsSafe) {
-            loseCondition();
+            loseCondition("tina");
           } else {
             matches++;
-            winCondition();
             setTimeout(function() {
               $(firstCardClicked[0].nextSibling).addClass("quiet");
               $(secondCardClicked[0].nextSibling).addClass("quiet");
@@ -154,10 +168,9 @@ function handleCardClick(event) {
       case "badonkR":
         if (firstClass === "badonkL") {
           if (!damselsSafe) {
-            loseCondition();
+            loseCondition("tina");
           } else {
             matches++;
-            winCondition();
             setTimeout(function() {
               $(firstCardClicked[0].nextSibling).addClass("quiet");
               $(secondCardClicked[0].nextSibling).addClass("quiet");
@@ -174,7 +187,6 @@ function handleCardClick(event) {
         break;
       case "tina":
         damselsSafe = true;
-        //add a dom element that tells them damsels are now safe to match
         setTimeout(function() {
           $(secondCardClicked[0].nextSibling).addClass("quiet");
           firstCardClicked.toggleClass("shrink");
@@ -184,7 +196,6 @@ function handleCardClick(event) {
       default:
         if (firstClass === secondClass) {
           matches++;
-          winCondition();
           setTimeout(function() {
             $(firstCardClicked[0].nextSibling).addClass("quiet");
             $(secondCardClicked[0].nextSibling).addClass("quiet");
@@ -198,35 +209,10 @@ function handleCardClick(event) {
           }, 1500);
         }
     }
-
+    winCondition();
     displayStats();
   }
 }
-// if (
-//   firstCardClicked[0].nextSibling.className ===
-//   secondCardClicked[0].nextSibling.className
-// ) {
-//   matches++;
-//   switch (firstCardClicked[0].nextSibling.className) {
-//     case "psycho":
-//       if (matches === max_matches) {
-//         loseCondition();
-//       }
-//   }
-//   winCondition();
-//   setTimeout(function() {
-//     $(firstCardClicked[0].nextSibling).addClass("quiet");
-//     $(secondCardClicked[0].nextSibling).addClass("quiet");
-//     resetCards();
-//   }, 700);
-// } else {
-//   setTimeout(function() {
-//     firstCardClicked.toggleClass("shrink");
-//     secondCardClicked.toggleClass("shrink");
-//     resetCards();
-//   }, 1500);
-// }
-
 function sameChecker(card) {
   if (!firstCardClicked) {
     firstCardClicked = $(card);
@@ -240,11 +226,17 @@ function sameChecker(card) {
     secondCardClicked.toggleClass("shrink");
   }
 }
-function loseCondition() {
+function loseCondition(typeString) {
+  if (typeString === "tina") {
+    var sentence = "Find an explosives expert before matching the damsels!";
+  } else if (typeString === "psycho") {
+    var sentence = "Match the psychos last!";
+  }
   var modal = $(".victoryModal-background");
   modal.css({
     display: "block"
   });
+  $(".lossType").text(sentence);
   $(".verdict").text("You lose!");
   $(".victoryModal-content > .final-attempts").text(
     "You lost in " + attempts + " attempts. Try harder next time grinder!"
@@ -264,7 +256,7 @@ function loseCondition() {
 
 function winCondition() {
   if (matches === max_matches - 1) {
-    $(".psychostatus statstext")
+    $(".psychostatus .statstext")
       .removeClass("notsafe")
       .addClass("safe");
   }
@@ -284,6 +276,7 @@ function winCondition() {
         display: "none"
       });
       resetStats();
+      resetCards();
       $(".gameboard").empty();
       var cards = [...CARDS];
       randomizeCardLocations(cards);
@@ -317,8 +310,16 @@ function displayStats() {
 function resetStats() {
   attempts = 0;
   matches = 0;
+  zerosFound = 0;
   $("*").removeClass("hidden");
   $("*").removeClass("quiet");
   $("div").removeClass("blocker");
   displayStats();
+  $(".haiku0").text("");
+  $(".haiku1").text("");
+  $(".haiku2").text("");
+  $(".psychostatus .statstext").removeClass("safe");
+  $(".damselstatus .statstext").removeClass("safe");
+  $(".psychostatus .statstext").addClass("notsafe");
+  $(".damselstatus .statstext").addClass("notsafe");
 }
