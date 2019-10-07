@@ -84,7 +84,7 @@ function randomizeCardLocations(cardArray) {
     gameboard.append(currentRow);
   }
 }
-function handleCardClick(event) {
+function handleCardClick(event) { //This is the worst function I've ever written
   var card = $(this);
   if (!firstCardClicked) {
     firstCardClicked = $(card);
