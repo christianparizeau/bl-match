@@ -109,6 +109,7 @@ body {
 }
 
 .card-back {
+  opacity: 0.2;
   background-image: url(/assets/images/symbol.png);
   float: right;
   animation: rotation 2s linear infinite;
