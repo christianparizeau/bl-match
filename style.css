@@ -24,15 +24,13 @@
   color: rgb(241, 241, 241);
 }
 
-.zerohaiku {
-  height: 100px;
-}
 .zerohaiku,
 .psychostatus,
 .damselstatus,
 .gamesPlayedDiv,
 .accuracyDiv,
 .attemptsDiv {
+  height:auto;
   border: 5px outset rgba(104, 190, 211, 0.685);
   text-align: center;
   background: rgba(104, 190, 211, 0.685);
