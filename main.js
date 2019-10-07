@@ -77,6 +77,12 @@ function handleCardClick(event) {
       }, 700);
       var selector = ".zerohaiku .haiku" + zerosFound;
       $(selector).text(zeroHaiku[zerosFound++]);
+    } else if (firstCardClicked[0].nextSibling.className === "buttStallion") {
+      var audio = new Audio("assets/sounds/neigh.mp3");
+      audio.play();
+    } else if (firstCardClicked[0].nextSibling.className === "jack") {
+      var audio = new Audio("assets/sounds/calling.mp3");
+      audio.play();
     }
     return;
   } else if (secondCardClicked) {
