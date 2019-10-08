@@ -19,9 +19,10 @@
 .haiku0,
 .haiku1,
 .haiku2 {
+  font-family: sans-serif;
   text-align: center;
-  font-size: 16px;
-  color: rgb(241, 241, 241);
+  font-size: 18px;
+  color: rgb(255, 255, 255);
 }
 
 .zerohaiku,
@@ -36,6 +37,8 @@
   background: rgba(104, 190, 211, 0.685);
   color: rgb(240, 127, 22);
 }
+
+
 
 .notsafe {
   color: red;
@@ -132,6 +135,7 @@ body {
 
 .card-back:hover {
   animation-play-state: running;
+
 }
 .card-back,
 .card,
