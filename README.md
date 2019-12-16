@@ -2,6 +2,12 @@
 
 A web application to train or test your memory.
 
+## Technologies
+
+- jQuery
+- CSS3
+- HTML5
+
 ## Preview
 
 ![BL-Match](assets/images/bl-match.gif)
