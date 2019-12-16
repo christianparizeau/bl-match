@@ -1,6 +1,6 @@
 # bl-match
 
-A web application to train or test your memory.
+A memory matching game with assets from borderlands series games
 
 ## Technologies
 
