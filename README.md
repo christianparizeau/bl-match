@@ -14,6 +14,6 @@ A memory matching game with assets from borderlands series games
 
 ## Live Demo
 
-Try the application live at [bl-match.pzo.codes](bl-match.pzo.codes)
+Try the application live at [bl-match.pzo.codes](http://bl-match.pzo.codes)
 
 
