@@ -1,6 +1,6 @@
 # bl-match
 
-A web application to test and train your memory.
+A web application to train or test your memory.
 
 ## Preview
 
