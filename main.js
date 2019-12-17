@@ -332,14 +332,14 @@ function calcAccuracy() {
 }
 
 function displayStats() {
-  $("#attemptsDiv").text(attempts);
+  $(".attemptsDivText").text(attempts);
   if (!attempts) {
-    $("#accuracyDiv").text(" ");
+    $(".accuracyDivText").text(" ");
   } else {
     var accuracy = calcAccuracy();
-    $("#accuracyDiv").text(accuracy + "%");
+    $(".accuracyDivText").text(accuracy + "%");
   }
-  $("#gamesPlayedDiv").text(games_played);
+  $(".gamesPlayedDivText").text(games_played);
 }
 
 function resetStats() {
