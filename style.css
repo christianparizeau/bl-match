@@ -273,9 +273,11 @@ body {
   .mobile-stats{
     display:flex
   }
+
   .title{
-    height: 20vh
+    height: 15vh;
   }
+
   .row{
     flex-wrap: wrap;
     display: flex;
