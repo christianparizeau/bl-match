@@ -1,10 +1,10 @@
 $(document).ready(init);
-var firstCardClicked = null;
-var secondCardClicked = null;
-var matches = null;
-var max_matches = 7;
-var games_played = 0;
-var attempts = null;
+let firstCardClicked = null;
+let secondCardClicked = null;
+let matches = null;
+let games_played = 0;
+let attempts = null;
+const max_matches = 7;
 const CARDS = [
   "buttStallion",
   "jack",
@@ -25,7 +25,7 @@ const CARDS = [
   "roland",
   "roland"
 ];
-var zeroHaikus = [
+const zeroHaikus = [
   [
     "Haiku's are quite rad,",
     "But sometimes they don't make sense,",
@@ -51,10 +51,10 @@ var zeroHaikus = [
   ["Can we start moving?", "I grow tired of this spot,", "I long to explore."],
   ["We made them angry", "Prepare for counterattack", "Maliwan dickheads"]
 ];
-var zerosFound = 0;
-var damselsSafe = false;
-var zeroClone = Array.from(zeroHaikus);
-var zeroHaiku;
+let zerosFound = 0;
+let damselsSafe = false;
+let zeroClone = Array.from(zeroHaikus);
+let zeroHaiku;
 function init() {
   $(".gameboard").on("click", ".card-back", handleCardClick);
   var cards = [...CARDS];
@@ -84,7 +84,7 @@ function randomizeCardLocations(cardArray) {
     gameboard.append(currentRow);
   }
 }
-function handleCardClick(event) { //This is the worst function I've ever written
+function handleCardClick() {
   var card = $(this);
   if (!firstCardClicked) {
     firstCardClicked = $(card);
@@ -92,7 +92,7 @@ function handleCardClick(event) { //This is the worst function I've ever written
     if (firstCardClicked[0].nextSibling.className === "tina") {
       damselsSafe = true;
       resetCards();
-      setTimeout(function() {
+      setTimeout(function () {
         $(".tina").addClass("quiet");
       }, 700);
       $(".damselstatus .statstext")
@@ -101,17 +101,11 @@ function handleCardClick(event) { //This is the worst function I've ever written
     } else if (firstCardClicked[0].nextSibling.className === "zero") {
       var thisZero = firstCardClicked;
       resetCards();
-      setTimeout(function() {
+      setTimeout(function () {
         cardClear($(thisZero[0].nextSibling));
       }, 700);
       var selector = ".zerohaiku .haiku" + zerosFound;
       $(selector).text(zeroHaiku[zerosFound++]);
-    } else if (firstCardClicked[0].nextSibling.className === "buttStallion") {
-      var audio = new Audio("assets/sounds/neigh.mp3");
-      audio.play();
-    } else if (firstCardClicked[0].nextSibling.className === "jack") {
-      var audio = new Audio("assets/sounds/calling.mp3");
-      audio.play();
     }
     return;
   } else if (secondCardClicked) {
@@ -124,12 +118,9 @@ function handleCardClick(event) { //This is the worst function I've ever written
     var secondClass = secondCardClicked[0].nextSibling.className;
     switch (secondClass) {
       case "jack":
-      let audio2 = new Audio("assets/sounds/calling.mp3")
-      audio2.play();
         if (firstClass === "buttStallion") {
-          audio2.pause();
           matches++;
-          setTimeout(function() {
+          setTimeout(function () {
             cardClear(
               $(firstCardClicked[0].nextSibling),
               $(secondCardClicked[0].nextSibling)
@@ -137,19 +128,16 @@ function handleCardClick(event) { //This is the worst function I've ever written
             resetCards();
           }, 700);
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
           }, 1500);
         }
         break;
       case "buttStallion":
-      let audio1 = new Audio("assets/sounds/neigh.mp3")
-      audio1.play();
         if (firstClass === "jack") {
-          audio1.pause();
           matches++;
-          setTimeout(function() {
+          setTimeout(function () {
             cardClear(
               $(firstCardClicked[0].nextSibling),
               $(secondCardClicked[0].nextSibling)
@@ -157,7 +145,7 @@ function handleCardClick(event) { //This is the worst function I've ever written
             resetCards();
           }, 700);
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
           }, 1500);
@@ -172,16 +160,15 @@ function handleCardClick(event) { //This is the worst function I've ever written
           winCondition();
         } else {
           matches--;
-          setTimeout(function() {
+          setTimeout(function () {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
           }, 1500);
         }
         break;
       case "zero":
-        var selector = ".zerohaiku .haiku" + zerosFound;
-        $(selector).text(zeroHaiku[zerosFound++]);
-        setTimeout(function() {
+        $(".zerohaiku .haiku" + zerosFound).text(zeroHaiku[zerosFound++]);
+        setTimeout(function () {
           cardClear($(secondCardClicked[0].nextSibling));
           cardReset(firstCardClicked);
           resetCards();
@@ -193,7 +180,7 @@ function handleCardClick(event) { //This is the worst function I've ever written
             loseCondition("tina");
           } else {
             matches++;
-            setTimeout(function() {
+            setTimeout(function () {
               cardClear(
                 $(firstCardClicked[0].nextSibling),
                 $(secondCardClicked[0].nextSibling)
@@ -202,7 +189,7 @@ function handleCardClick(event) { //This is the worst function I've ever written
             }, 700);
           }
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
           }, 1500);
@@ -214,7 +201,7 @@ function handleCardClick(event) { //This is the worst function I've ever written
             loseCondition("tina");
           } else {
             matches++;
-            setTimeout(function() {
+            setTimeout(function () {
               cardClear(
                 $(firstCardClicked[0].nextSibling),
                 $(secondCardClicked[0].nextSibling)
@@ -223,7 +210,7 @@ function handleCardClick(event) { //This is the worst function I've ever written
             }, 700);
           }
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
           }, 1500);
@@ -231,7 +218,7 @@ function handleCardClick(event) { //This is the worst function I've ever written
         break;
       case "tina":
         damselsSafe = true;
-        setTimeout(function() {
+        setTimeout(function () {
           cardClear($(secondCardClicked[0].nextSibling));
           cardReset(firstCardClicked);
           resetCards();
@@ -243,7 +230,7 @@ function handleCardClick(event) { //This is the worst function I've ever written
       default:
         if (firstClass === secondClass) {
           matches++;
-          setTimeout(function() {
+          setTimeout(function () {
             cardClear(
               $(firstCardClicked[0].nextSibling),
               $(secondCardClicked[0].nextSibling)
@@ -251,7 +238,7 @@ function handleCardClick(event) { //This is the worst function I've ever written
             resetCards();
           }, 700);
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
           }, 1500);
@@ -259,19 +246,6 @@ function handleCardClick(event) { //This is the worst function I've ever written
     }
     winCondition();
     displayStats();
-  }
-}
-function sameChecker(card) {
-  if (!firstCardClicked) {
-    firstCardClicked = $(card);
-    firstCardClicked.toggleClass("shrink");
-    return;
-  } else if (secondCardClicked) {
-    return;
-  } else {
-    attempts++;
-    secondCardClicked = $(card);
-    secondCardClicked.toggleClass("shrink");
   }
 }
 
@@ -287,10 +261,11 @@ function cardReset() {
 }
 
 function loseCondition(typeString) {
+  let sentence;
   if (typeString === "tina") {
-    var sentence = "Find an explosives expert before matching the damsels!";
+    sentence = "Find an explosives expert before matching the damsels!";
   } else if (typeString === "psycho") {
-    var sentence = "Match the psychos last!";
+    sentence = "Match the psychos last!";
   }
   var modal = $(".victoryModal-background");
   modal.css({
@@ -301,7 +276,7 @@ function loseCondition(typeString) {
   $(".victoryModal-content > .final-attempts").text(
     "Try harder next time grinder!"
   );
-  $(".close").on("click", function(e) {
+  $(".close").on("click", function () {
     modal.css({
       display: "none"
     });
@@ -331,7 +306,7 @@ function winCondition() {
     $(".victoryModal-content > .final-accuracy").text(
       "Your accuracy was " + calcAccuracy() + "%"
     );
-    $(".close").on("click", function(e) {
+    $(".close").on("click", function () {
       modal.css({
         display: "none"
       });

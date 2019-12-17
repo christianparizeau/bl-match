@@ -1,68 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Matching Game</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
-    />
-    <script src="main.js"></script>
-  </head>
-  <body>
-    <div class="body">
-      <header>
-        <div class="title">Borderlands Matching Game</div>
-      </header>
-      <div class="totalParent">
-        <aside>
-          <div class="stats gamesPlayedDiv">
-            <div class="statstext">Games Played</div>
-            <div id="gamesPlayedDiv">0</div>
-          </div>
-          <div class="stats attemptsDiv">
-            <div class="statstext">Attempts</div>
-            <div id="attemptsDiv">0</div>
-          </div>
-          <div class="stats accuracyDiv">
-            <div class="statstext">Accuracy</div>
-            <div id="accuracyDiv"></div>
-          </div>
-          <div class="stats damselstatus">
-            <div class="statstext notsafe">
-              Damsels
-            </div>
-          </div>
-          <div class="stats psychostatus">
-            <div class="statstext notsafe">
-              Psychos
-            </div>
-          </div>
-          <div class="stats zerohaiku">
-            <div class="statstext">
-              Zer0's Haiku
-            </div>
-            <div class="haiku0"></div>
-            <div class="haiku1"></div>
-            <div class="haiku2"></div>
-          </div>
-        </aside>
-        <main>
-          <div class="gameboard"></div>
-        </main>
+
+<head>
+  <title>Matching Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="title">Borderlands Matching Game</div>
+  </header>
+  <div class="totalParent">
+    <aside>
+      <div class="stats gamesPlayedDiv">
+        <div class="statstext">Games Played</div>
+        <div id="gamesPlayedDiv">0</div>
       </div>
-      <div class="victoryModal-background">
-        <div class="victoryModal-content">
-          <span class="close">Play Again?</span>
-          <p class="verdict"></p>
-          <p class="final-attempts"></p>
-          <p class="lossType"></p>
-          <p class="final-accuracy"></p>
+      <div class="stats attemptsDiv">
+        <div class="statstext">Attempts</div>
+        <div id="attemptsDiv">0</div>
+      </div>
+      <div class="stats accuracyDiv">
+        <div class="statstext">Accuracy</div>
+        <div id="accuracyDiv"></div>
+      </div>
+      <div class="stats damselstatus">
+        <div class="statstext notsafe">
+          Damsels
         </div>
       </div>
+      <div class="stats psychostatus">
+        <div class="statstext notsafe">
+          Psychos
+        </div>
+      </div>
+      <div class="stats zerohaiku">
+        <div class="statstext">
+          Zer0's Haiku
+        </div>
+        <div class="haiku0"></div>
+        <div class="haiku1"></div>
+        <div class="haiku2"></div>
+      </div>
+    </aside>
+    <main>
+      <div class="gameboard"></div>
+    </main>
+  </div>
+  <div class="victoryModal-background">
+    <div class="victoryModal-content">
+      <span class="close">Play Again?</span>
+      <p class="verdict"></p>
+      <p class="final-attempts"></p>
+      <p class="lossType"></p>
+      <p class="final-accuracy"></p>
     </div>
-    <div class="warning"></div>
-  </body>
+  </div>
+  <div class="warning"></div>
+</body>
+
 </html>
