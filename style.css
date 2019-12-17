@@ -1,6 +1,5 @@
-.title {
+header {
   width: 100%;
-  height: 20vh;
   text-align: center;
   font-size: 48px;
 }
@@ -274,8 +273,8 @@ body {
     display:flex
   }
 
-  .title{
-    height: 15vh;
+  header{
+    height: initial;
   }
 
   .row{
