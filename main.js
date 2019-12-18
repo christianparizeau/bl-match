@@ -60,6 +60,11 @@ function init() {
   var cards = [...CARDS];
   randomizeCardLocations(cards);
   zeroPicker();
+  $(".close").on("click",
+    function () {
+      $('.startModal-background').css({ display: 'none' })
+    }
+  );
 }
 
 function zeroPicker() {

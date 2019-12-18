@@ -44,9 +44,9 @@ header {
   color: lime;
 }
 
-#gamesPlayedDivText,
-#accuracyDivText,
-#attemptsDivText {
+.gamesPlayedDivText,
+.accuracyDivText,
+.attemptsDivText {
   display: inline-block;
   position: relative;
   font-size: 1em;
@@ -61,12 +61,14 @@ aside {
   align-items: center;
   justify-content: space-between;
 }
+
 main {
   display: flex;
   height: 80vh;
   width: 70vw;
   font-size: 0;
 }
+
 .gameboard {
   display: flex;
   height: 100%;
@@ -77,6 +79,7 @@ main {
   align-items: left;
   justify-content: top;
 }
+
 .totalParent {
   display: flex;
 }
@@ -136,8 +139,8 @@ body {
 
 .card-back:hover {
   animation-play-state: running;
-
 }
+
 .card-back,
 .card,
 .buttStallion,
@@ -204,6 +207,7 @@ body {
   background-image: url(assets/images/badonkL.png);
 }
 
+.startModal-background,
 .victoryModal-background {
   display: none;
   position: fixed;
@@ -219,6 +223,11 @@ body {
   height: 100%;
 }
 
+.startModal-background{
+  display:block
+}
+
+.startModal-content,
 .victoryModal-content {
   background-color: grey;
   border: 5px outset black;
@@ -277,6 +286,17 @@ body {
 
   header{
     height: initial;
+    font-size: 3rem
+  }
+
+  .zerohaiku,
+  .psychostatus,
+  .damselstatus,
+  .gamesPlayedDivText,
+  .accuracyDivText,
+  .statstext,
+  .attemptsDivText {
+    font-size: 2.5rem;
   }
 
   .row{
