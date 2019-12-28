@@ -337,7 +337,7 @@ body {
     display: none;
   }
   body{
-    overflow-y:auto;
+    overflow-y:hidden;
     background-size:auto 100%;
     min-height: 100vh
   }
