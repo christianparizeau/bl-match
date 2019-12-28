@@ -273,9 +273,10 @@ body {
 
 @media only screen and (max-width: 980px){
   .card-container{
-      height: 12vw;
-      margin: 2rem 4rem;
-      flex: 0 0 12%;
+      height: 14vw;
+      margin: 1rem 4rem;
+      flex: 0 0 14%;
+
   }
 
   .card-container:active{
@@ -291,8 +292,7 @@ body {
   }
 
   header{
-    height: initial;
-    font-size: 3rem
+    font-size: 1.5rem
   }
 
   .zerohaiku,
@@ -302,7 +302,7 @@ body {
   .accuracyDivText,
   .statstext,
   .attemptsDivText {
-    font-size: 2.5rem;
+    font-size: 1rem;
   }
 
   .row{
@@ -310,12 +310,22 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    height: auto;
   }
 
   .gameboard{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+  }
+  .zerohaiku,
+  .psychostatus,
+  .damselstatus,
+  .gamesPlayedDivText,
+  .accuracyDivText,
+  .statstext,
+  .attemptsDivText {
+    font-size: 1rem;
   }
 
   main{
@@ -326,7 +336,7 @@ body {
     display: none;
   }
   body{
-    overflow-y:hidden;
+    overflow-y:auto;
     background-size:auto 100%;
     min-height: 100vh
   }
@@ -342,11 +352,17 @@ body {
   .mobile-stats{
     display:none
   }
+  .haiku0,
+  .haiku1,
+  .haiku2{
+    font-size: 14px;
+  }
   header {
     width: 100%;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     user-select: none;
+    font-size: 1rem;
   }
   .zerohaiku,
   .psychostatus,
@@ -367,7 +383,7 @@ body {
   .accuracyDivText,
   .statstext,
   .attemptsDivText {
-    font-size: 1rem;
+    font-size: .8rem;
   }
   .row {
     display: flex;
