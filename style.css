@@ -21,6 +21,12 @@ header {
   top: 10px;
 }
 
+.info-picture-big {
+  height: 150px;
+}
+.info-picture-small {
+  height: 80px;
+}
 .haiku0,
 .haiku1,
 .haiku2 {
@@ -260,6 +266,7 @@ body {
   font-weight: bold;
 }
 
+.show-board,
 .close:hover,
 .close:focus {
   color: orangered;
