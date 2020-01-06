@@ -266,6 +266,21 @@ function cardReset() {
 function loseCondition(typeString) {
   let sentence;
   let imageSrc;
+  $(".show-board").on("click", function() {
+    $(".victoryModal-background").css({
+      visibility: "hidden"
+    });
+    $(".gameboard").css({
+      "pointer-events": "none"
+    });
+    $(".title > h4")
+      .text("Show Stats")
+      .on("click", function() {
+        $(".victoryModal-background").css({
+          visibility: "visible"
+        });
+      });
+  });
   if (typeString === "tina") {
     sentence = "Find an explosives expert before matching the damsels!";
     imageSrc = "./assets/images/tina.png";
@@ -367,6 +382,10 @@ function resetStats() {
   matches = 0;
   zerosFound = 0;
   damselsSafe = false;
+  $(".title > h4").text("Borderlands Matching Game");
+  $(".gameboard").css({
+    "pointer-events": "auto"
+  });
   $(".loss-image").empty();
   $("*").removeClass("hidden");
   $("*").removeClass("quiet");

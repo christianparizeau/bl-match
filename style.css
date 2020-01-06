@@ -266,6 +266,7 @@ body {
   font-weight: bold;
 }
 
+.show-stats,
 .show-board,
 .close:hover,
 .close:focus {
@@ -388,9 +389,6 @@ body {
     text-align: center;
     font-size: 2rem;
     user-select: none;
-  }
-  .center {
-    text-align: center;
   }
   .zerohaiku,
   .psychostatus,
