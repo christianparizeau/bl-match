@@ -14,6 +14,19 @@ header {
   user-select: none;
 }
 
+.info-picture {
+  object-fit: contain;
+  height: 50px;
+  position: relative;
+  top: 10px;
+}
+
+.info-picture-big {
+  height: 150px;
+}
+.info-picture-small {
+  height: 80px;
+}
 .haiku0,
 .haiku1,
 .haiku2 {
@@ -29,7 +42,7 @@ header {
 .gamesPlayedDiv,
 .accuracyDiv,
 .attemptsDiv {
-  height:auto;
+  height: auto;
   border: 5px outset rgba(104, 190, 211, 0.685);
   text-align: center;
   background: rgba(104, 190, 211, 0.685);
@@ -97,7 +110,7 @@ body {
   justify-content: space-evenly;
   height: 20%;
   width: 100%;
-  margin: auto
+  margin: auto;
 }
 
 .card-container {
@@ -115,7 +128,7 @@ body {
   animation-play-state: paused;
 }
 
-.card-back:hover{
+.card-back:hover {
   cursor: pointer;
 }
 
@@ -209,7 +222,7 @@ body {
 .startModal-background,
 .victoryModal-background {
   display: none;
-  position: fixed;
+  position: relative;
   left: 0;
   top: 0;
   z-index: 1;
@@ -217,29 +230,33 @@ body {
   position: fixed;
   color: dodgerblue;
   background: rgba(0, 0, 0, 0.836);
-  text-align: center;
   width: 100%;
   height: 100%;
 }
 
-.startModal-background{
-  display:block
+.startModal-background {
+  display: block;
+}
+
+.victoryModal-content {
+  text-align: center;
 }
 
 .startModal-content,
 .victoryModal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: grey;
-  border: 5px outset black;
   border-radius: 15px;
-  margin: 10% auto;
-  padding: 20px;
+  padding: 15px;
   border: 1px solid #888;
-  width: 30%;
   font-size: 25px;
 }
 
-.startModal-content{
-  width: 65%
+.startModal-content {
+  width: 65%;
 }
 
 .close {
@@ -249,6 +266,10 @@ body {
   font-weight: bold;
 }
 
+.show-stats:hover,
+.show-stats:active,
+.show-board:hover,
+.show-board:active,
 .close:hover,
 .close:focus {
   color: orangered;
@@ -268,32 +289,35 @@ body {
   display: none;
 }
 
-.mobile-stats{
-  display:none
+.mobile-stats {
+  display: none;
 }
 
-@media only screen and (max-width: 980px){
-  .card-container{
-      height: 14vw;
-      margin: 1rem 4rem;
-      flex: 0 0 14%;
-
+@media only screen and (max-width: 980px) {
+  .card-container {
+    height: 14vw;
+    margin: 1rem 4rem;
+    flex: 0 0 14%;
   }
 
-  .card-container:active{
-    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+  .victoryModal-content,
+  .startModal-content {
+    font-size: 2rem;
+  }
+  .card-container:active {
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .card-container:hover{
-    animation-play-state: none
+  .card-container:hover {
+    animation-play-state: none;
   }
 
-  .mobile-stats{
-    display:flex
+  .mobile-stats {
+    display: flex;
   }
 
-  header{
-    font-size: 2rem
+  header {
+    font-size: 2rem;
   }
 
   .zerohaiku,
@@ -306,7 +330,7 @@ body {
     font-size: 1rem;
   }
 
-  .row{
+  .row {
     flex-wrap: wrap;
     display: flex;
     justify-content: space-evenly;
@@ -314,7 +338,7 @@ body {
     height: auto;
   }
 
-  .gameboard{
+  .gameboard {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -329,33 +353,37 @@ body {
     font-size: 1.8rem;
   }
 
-  main{
+  main {
     height: initial;
-    width:100%
+    width: 100%;
   }
-  aside{
+  aside {
     display: none;
   }
-  body{
-    overflow-y:hidden;
-    background-size:auto 100%;
-    min-height: 100vh
+  body {
+    overflow-y: hidden;
+    background-size: auto 100%;
+    min-height: 100vh;
   }
 }
 
-@media only screen and (orientation: landscape) and (max-width:1024px){
+@media only screen and (orientation: landscape) and (max-width: 1024px) {
   .card-container {
     display: inline-block;
     height: 85px;
     width: 85px;
-    margin: 0 5px
+    margin: 0 5px;
   }
-  .mobile-stats{
-    display:none
+  .victoryModal-content,
+  .startModal-content {
+    font-size: 1rem;
+  }
+  .mobile-stats {
+    display: none;
   }
   .haiku0,
   .haiku1,
-  .haiku2{
+  .haiku2 {
     font-size: 14px;
   }
   header {
@@ -370,7 +398,7 @@ body {
   .gamesPlayedDiv,
   .accuracyDiv,
   .attemptsDiv {
-    height:auto;
+    height: auto;
     border: 5px outset rgba(104, 190, 211, 0.685);
     text-align: center;
     background: rgba(104, 190, 211, 0.685);
@@ -383,14 +411,14 @@ body {
   .accuracyDivText,
   .statstext,
   .attemptsDivText {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
   .row {
     display: flex;
     flex-wrap: wrap;
     height: 20%;
     width: 100%;
-    margin: auto
+    margin: auto;
   }
   .gameboard {
     display: flex;
