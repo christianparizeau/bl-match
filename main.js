@@ -274,7 +274,7 @@ function loseCondition(typeString) {
       "pointer-events": "none"
     });
     $(".title > h4")
-      .text("Show Stats")
+      .text("Show Stats / Play Again")
       .on("click", function() {
         $(".victoryModal-background").css({
           visibility: "visible"
@@ -330,7 +330,7 @@ function winCondition() {
       .removeClass("notsafe")
       .addClass("safe");
   }
-  if (matches === max_matches) {
+  if (matches >= max_matches) {
     var modal = $(".victoryModal-background");
     modal.css({
       display: "block"
@@ -350,6 +350,25 @@ function winCondition() {
       $(".gameboard").empty();
       var cards = [...CARDS];
       randomizeCardLocations(cards);
+    });
+    $(".show-board").on("click", function() {
+      $(".victoryModal-background").css({
+        visibility: "hidden"
+      });
+      $(".gameboard").css({
+        "pointer-events": "none"
+      });
+      $("*").removeClass("quiet");
+      $(".card-back").css({
+        visibility: "hidden"
+      });
+      $(".title > h4")
+        .text("Show Stats / Play Again")
+        .on("click", function() {
+          $(".victoryModal-background").css({
+            visibility: "visible"
+          });
+        });
     });
     games_played++;
   }

@@ -266,8 +266,10 @@ body {
   font-weight: bold;
 }
 
-.show-stats,
-.show-board,
+.show-stats:hover,
+.show-stats:active,
+.show-board:hover,
+.show-board:active,
 .close:hover,
 .close:focus {
   color: orangered;
@@ -303,7 +305,7 @@ body {
     font-size: 2rem;
   }
   .card-container:active {
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
   }
 
   .card-container:hover {
