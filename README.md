@@ -1,6 +1,6 @@
 # bl-match
 
-A memory matching game with assets from borderlands series games
+  A memory matching game with assets from borderlands series games
 
 ## Technologies
 
@@ -10,7 +10,7 @@ A memory matching game with assets from borderlands series games
 
 ## Live Demo
 
-Try the application live at https://bl-match.pzo.codes
+  https://bl-match.pzo.codes
 
 ## Preview
 
