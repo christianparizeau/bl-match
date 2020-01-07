@@ -273,6 +273,10 @@ function loseCondition(typeString) {
     $(".gameboard").css({
       "pointer-events": "none"
     });
+    $(".card-back").css({
+      visibility: "hidden"
+    });
+    $("*").removeClass("quiet");
     $(".title > h4")
       .text("Show Stats / Play Again")
       .on("click", function() {
@@ -292,6 +296,7 @@ function loseCondition(typeString) {
   modal.css({
     display: "block"
   });
+
   $(".lossType").text(sentence);
   $(".verdict").text("You lose!");
   $(".victoryModal-content > .final-attempts").text(
