@@ -60,7 +60,7 @@ function init() {
   var cards = [...CARDS];
   randomizeCardLocations(cards);
   zeroPicker();
-  $(".close").on("click", function() {
+  $(".close").on("click", function () {
     $(".startModal-background").css({ display: "none" });
   });
 }
@@ -95,7 +95,7 @@ function handleCardClick() {
     if (firstCardClicked[0].nextSibling.className === "tina") {
       damselsSafe = true;
       resetCards();
-      setTimeout(function() {
+      setTimeout(function () {
         $(".tina").addClass("quiet");
       }, 700);
       $(".damselstatus .statstext")
@@ -104,7 +104,7 @@ function handleCardClick() {
     } else if (firstCardClicked[0].nextSibling.className === "zero") {
       var thisZero = firstCardClicked;
       resetCards();
-      setTimeout(function() {
+      setTimeout(function () {
         cardClear($(thisZero[0].nextSibling));
       }, 700);
       var selector = ".zerohaiku .haiku" + zerosFound;
@@ -123,7 +123,7 @@ function handleCardClick() {
       case "jack":
         if (firstClass === "buttStallion") {
           matches++;
-          setTimeout(function() {
+          setTimeout(function () {
             cardClear(
               $(firstCardClicked[0].nextSibling),
               $(secondCardClicked[0].nextSibling)
@@ -131,7 +131,7 @@ function handleCardClick() {
             resetCards();
           }, 700);
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
           }, 1500);
@@ -140,7 +140,7 @@ function handleCardClick() {
       case "buttStallion":
         if (firstClass === "jack") {
           matches++;
-          setTimeout(function() {
+          setTimeout(function () {
             cardClear(
               $(firstCardClicked[0].nextSibling),
               $(secondCardClicked[0].nextSibling)
@@ -148,7 +148,7 @@ function handleCardClick() {
             resetCards();
           }, 700);
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
           }, 1500);
@@ -163,7 +163,7 @@ function handleCardClick() {
           winCondition();
         } else {
           matches--;
-          setTimeout(function() {
+          setTimeout(function () {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
           }, 1500);
@@ -171,7 +171,7 @@ function handleCardClick() {
         break;
       case "zero":
         $(".zerohaiku .haiku" + zerosFound).text(zeroHaiku[zerosFound++]);
-        setTimeout(function() {
+        setTimeout(function () {
           cardClear($(secondCardClicked[0].nextSibling));
           cardReset(firstCardClicked);
           resetCards();
@@ -183,7 +183,7 @@ function handleCardClick() {
             loseCondition("tina");
           } else {
             matches++;
-            setTimeout(function() {
+            setTimeout(function () {
               cardClear(
                 $(firstCardClicked[0].nextSibling),
                 $(secondCardClicked[0].nextSibling)
@@ -192,7 +192,7 @@ function handleCardClick() {
             }, 700);
           }
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
           }, 1500);
@@ -204,7 +204,7 @@ function handleCardClick() {
             loseCondition("tina");
           } else {
             matches++;
-            setTimeout(function() {
+            setTimeout(function () {
               cardClear(
                 $(firstCardClicked[0].nextSibling),
                 $(secondCardClicked[0].nextSibling)
@@ -213,7 +213,7 @@ function handleCardClick() {
             }, 700);
           }
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
           }, 1500);
@@ -221,7 +221,7 @@ function handleCardClick() {
         break;
       case "tina":
         damselsSafe = true;
-        setTimeout(function() {
+        setTimeout(function () {
           cardClear($(secondCardClicked[0].nextSibling));
           cardReset(firstCardClicked);
           resetCards();
@@ -233,7 +233,7 @@ function handleCardClick() {
       default:
         if (firstClass === secondClass) {
           matches++;
-          setTimeout(function() {
+          setTimeout(function () {
             cardClear(
               $(firstCardClicked[0].nextSibling),
               $(secondCardClicked[0].nextSibling)
@@ -241,7 +241,7 @@ function handleCardClick() {
             resetCards();
           }, 700);
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
           }, 1500);
@@ -266,7 +266,7 @@ function cardReset() {
 function loseCondition(typeString) {
   let sentence;
   let imageSrc;
-  $(".show-board").on("click", function() {
+  $(".show-board").on("click", function () {
     $(".victoryModal-background").css({
       visibility: "hidden"
     });
@@ -279,7 +279,8 @@ function loseCondition(typeString) {
     $("*").removeClass("quiet");
     $(".title > h4")
       .text("Show Stats / Play Again")
-      .on("click", function() {
+      .addClass("pointer")
+      .on("click", function () {
         $(".victoryModal-background").css({
           visibility: "visible"
         });
@@ -316,7 +317,7 @@ function loseCondition(typeString) {
       );
     $(".victoryModal-content").append(extraInfo);
   }
-  $(".close").on("click", function() {
+  $(".close").on("click", function () {
     modal.css({
       display: "none"
     });
@@ -346,7 +347,7 @@ function winCondition() {
     $(".victoryModal-content > .final-accuracy").text(
       "Your accuracy was " + calcAccuracy() + "%"
     );
-    $(".close").on("click", function() {
+    $(".close").on("click", function () {
       modal.css({
         display: "none"
       });
@@ -356,7 +357,7 @@ function winCondition() {
       var cards = [...CARDS];
       randomizeCardLocations(cards);
     });
-    $(".show-board").on("click", function() {
+    $(".show-board").on("click", function () {
       $(".victoryModal-background").css({
         visibility: "hidden"
       });
@@ -369,7 +370,8 @@ function winCondition() {
       });
       $(".title > h4")
         .text("Show Stats / Play Again")
-        .on("click", function() {
+        .addClass('pointer')
+        .on("click", function () {
           $(".victoryModal-background").css({
             visibility: "visible"
           });
@@ -410,6 +412,7 @@ function resetStats() {
   $(".gameboard").css({
     "pointer-events": "auto"
   });
+  $(".title > h4").removeClass("pointer")
   $(".loss-image").empty();
   $("*").removeClass("hidden");
   $("*").removeClass("quiet");

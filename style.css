@@ -277,6 +277,10 @@ body {
   cursor: pointer;
 }
 
+.pointer{
+  cursor: pointer;
+}
+
 .quiet {
   opacity: 0.5;
 }
