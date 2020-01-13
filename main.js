@@ -122,7 +122,7 @@ function handleCardClick() {
     switch (secondClass) {
       case "jack":
         if (firstClass === "buttStallion") {
-          matches++;
+          ++matches;
           setTimeout(function () {
             cardClear(
               $(firstCardClicked[0].nextSibling),
@@ -139,7 +139,7 @@ function handleCardClick() {
         break;
       case "buttStallion":
         if (firstClass === "jack") {
-          matches++;
+          ++matches;
           setTimeout(function () {
             cardClear(
               $(firstCardClicked[0].nextSibling),
@@ -155,14 +155,14 @@ function handleCardClick() {
         }
         break;
       case "psycho":
-        matches++;
-        if (firstClass === "psycho" && matches !== max_matches) {
-          matches--;
+        ++matches;
+        if (firstClass === "psycho" && matches < max_matches) {
+          --matches;
           loseCondition("psycho");
         } else if (firstClass === "psycho" && matches === max_matches) {
           winCondition();
         } else {
-          matches--;
+          --matches;
           setTimeout(function () {
             cardReset(firstCardClicked, secondCardClicked);
             resetCards();
@@ -182,7 +182,7 @@ function handleCardClick() {
           if (!damselsSafe) {
             loseCondition("tina");
           } else {
-            matches++;
+            ++matches;
             setTimeout(function () {
               cardClear(
                 $(firstCardClicked[0].nextSibling),
@@ -203,7 +203,7 @@ function handleCardClick() {
           if (!damselsSafe) {
             loseCondition("tina");
           } else {
-            matches++;
+            ++matches;
             setTimeout(function () {
               cardClear(
                 $(firstCardClicked[0].nextSibling),
@@ -232,7 +232,7 @@ function handleCardClick() {
         break;
       default:
         if (firstClass === secondClass) {
-          matches++;
+          ++matches;
           setTimeout(function () {
             cardClear(
               $(firstCardClicked[0].nextSibling),
