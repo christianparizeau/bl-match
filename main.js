@@ -297,7 +297,7 @@ function loseCondition(typeString) {
   modal.css({
     display: "block"
   });
-
+  $(".final-accuracy").empty();
   $(".lossType").text(sentence);
   $(".verdict").text("You lose!");
   $(".victoryModal-content > .final-attempts").text(
@@ -306,7 +306,7 @@ function loseCondition(typeString) {
   const lossImage = $(`<img src=${imageSrc} />`).addClass("info-picture-big");
   $(".loss-image").append(lossImage);
   if (typeString === "tina") {
-    const extraInfo = $("<div>")
+    const extraInfo = $("<div class='extra-info'>")
       .append("<p>Before</p>")
       .append(
         $('<img class="info-picture-small" src="./assets/images/badonkR.png"/>')
@@ -322,6 +322,7 @@ function loseCondition(typeString) {
       display: "none"
     });
     resetStats();
+    $(".extra-info").remove();
     $(".gameboard").empty();
     var cards = [...CARDS];
     randomizeCardLocations(cards);
@@ -331,6 +332,7 @@ function loseCondition(typeString) {
 }
 
 function winCondition() {
+  console.log(matches)
   if (matches === max_matches - 1) {
     $(".psychostatus .statstext")
       .removeClass("notsafe")
@@ -338,6 +340,8 @@ function winCondition() {
   }
   if (matches >= max_matches) {
     var modal = $(".victoryModal-background");
+    $('.verdict').text("You win!")
+    $(".lossType").empty();
     modal.css({
       display: "block"
     });
